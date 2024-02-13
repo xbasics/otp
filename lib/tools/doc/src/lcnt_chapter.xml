@@ -34,12 +34,12 @@
     </header>
     <p>
 	Internally in the Erlang runtime system locks are used to protect resources from being updated from multiple threads in a fatal way. Locks are necessary
-	to ensure that the runtime system works properly but it also introduces a couple of limitations. Lock contention and locking overhead.
+	to ensure that the runtime system works properly but it also introduces a couple of limitations: lock contention and locking overhead.
     </p>
     <p>
-	With lock contention we mean when one thread locks a resource and another thread, or threads, tries to acquire the same resource at the same time. The lock will deny
-	the other thread access to the resource and the thread will be blocked from continuing its execution. The second thread has to wait until the first thread has
-	completed its access to the resource and unlocked it. The <c>lcnt</c> tool measures these lock conflicts.
+	Lock contention occurs when one thread locks a resource and another thread, or threads, tries to acquire the same resource at the same time. The lock will deny
+	the second thread access to the resource and will block it from continuing its execution. The second thread has to then wait until the first thread has
+	completed its work accessing and unlocking the resource. The <c>lcnt</c> tool measures these lock conflicts.
     </p>
     <p>
 	Locks have an inherent cost in execution time and memory space. It takes time initialize, destroy, acquiring or releasing locks. To decrease lock contention it
